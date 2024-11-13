@@ -157,36 +157,6 @@ print(classification_report(y_test,predictions))
 
 ## OUTPUT:
 ![Screenshot 2024-04-10 153526](https://github.com/AnandhamoorthyKarthikeyan/Ex-4-NN/assets/119475998/e6410d7e-3c1f-45b6-8832-5a989b7bb9a2)
-### PROGRAM
-```py
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.neural_network import MLPClassifier
-from sklearn.metrics import classification_report
-from sklearn.metrics import confusion_matrix
-url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
-arr = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species']
-df = pd.read_csv(url, names=arr)
-print(df.head())
-a = df.iloc[:, 0:4]
-b = df.select_dtypes(include=[object])
-b = df.iloc[:,4:5]
-training_a, testing_a, training_b, testing_b = train_test_split(a, b, test_size = 0.25)
-myscaler = StandardScaler()
-myscaler.fit(training_a)
-training_a = myscaler.transform(training_a)
-testing_a = myscaler.transform(testing_a)
-m1 = MLPClassifier(hidden_layer_sizes=(12, 13, 14), activation='relu', solver='adam', max_iter=2500)
-m1.fit(training_a, training_b.values.ravel())
-predicted_values = m1.predict(testing_a)
-print(confusion_matrix(testing_b,predicted_values))
-print(classification_report(testing_b,predicted_values))
-```
-### OUTPUT:
-![image](https://github.com/A-Thiyagarajan/Ex-4-NN/assets/118707693/42676b07-a30e-4751-8a24-ebfc18fb15d0)
-![image](https://github.com/A-Thiyagarajan/Ex-4-NN/assets/118707693/12ac7597-e80d-4f79-bbc8-780df08f84c9)
-
 
 
 
